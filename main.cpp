@@ -4,7 +4,7 @@
 
 using namespace std;
 
-void addToStorage(const char* fileName);
+void addToStorage(const char* fileName, uint8_t* storage);
 void sizeCalc(const char* fileName,unsigned &sizeAllFiles);
 
 
@@ -16,11 +16,22 @@ int main(int argc, char** argv)
     for(int i = 1; i < argc; ++i){
         char* fileName = argv[i];
         sizeCalc(fileName, sizeAllFiles);
-        //addToStorage(fileName);
+
 
     }
 
     cout << "Full size: " << sizeAllFiles << " byte" << endl;
+
+    uint8_t storage[sizeAllFiles];
+
+
+    for(int i = 1; i < argc; ++i){
+        char* fileName = argv[i];
+
+        addToStorage(fileName, storage);
+    }
+
+
     return 0;
 }
 
@@ -43,7 +54,7 @@ void sizeCalc(const char* fileName, unsigned &sizeAllFiles){
 
 }
 
-void addToStorage(const char* fileName){
+void addToStorage(const char* fileName, uint8_t* storage){
     ifstream input(fileName, std::ios::in | std::ios::binary);
     if (!input.is_open()) {
         cout << "Failed to open file: " << fileName << endl;
