@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE QtCreatorProject>
-<!-- Written by QtCreator 4.14.0, 2021-02-04T00:09:26. -->
+<!-- Written by QtCreator 4.14.0, 2021-02-05T23:30:58. -->
 <qtcreator>
  <data>
   <variable>EnvironmentId</variable>
@@ -294,7 +294,7 @@
     <valuelist type="QVariantList" key="PE.EnvironmentAspect.Changes"/>
     <value type="QString" key="ProjectExplorer.ProjectConfiguration.Id">Qt4ProjectManager.Qt4RunConfiguration:/Users/fs0ciety/Desktop/qtApp/byteConcat/byteConcat.pro</value>
     <value type="QString" key="ProjectExplorer.RunConfiguration.BuildKey">/Users/fs0ciety/Desktop/qtApp/byteConcat/byteConcat.pro</value>
-    <value type="QString" key="RunConfiguration.Arguments">1.jpg 2.jpg</value>
+    <value type="QString" key="RunConfiguration.Arguments">output.concat</value>
     <value type="bool" key="RunConfiguration.UseCppDebugger">false</value>
     <value type="bool" key="RunConfiguration.UseCppDebuggerAuto">true</value>
     <value type="bool" key="RunConfiguration.UseLibrarySearchPath">true</value>
