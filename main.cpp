@@ -14,9 +14,9 @@ void split(const char* fileName);
 
 int main(int argc, char** argv)
 {
-    //    for(int i = 1; i < argc; ++i){
+    //    for (int i = 1; i < argc; ++i) {
     //        char* fileName = argv[i];
-    //        unsigned  size = fileSize(fileName);
+    //        unsigned size = fileSize(fileName);
     //        cout << size << endl;
     //        writeOutput(fileName, size);
     //    }
@@ -50,6 +50,7 @@ void split(const char* fileName)
         if (stringBuffer[i] == ';') {
             string temp = stringBuffer.substr(prevIndex, i - prevIndex);
             prevIndex = i;
+            cout << temp << endl;
 
             switch (mode) {
             case 0:
@@ -58,19 +59,19 @@ void split(const char* fileName)
                 break;
 
             case 1:
-                cout << temp << endl;
-                // resSize = stoi(temp);
-                //i += resSize;
-                prevIndex++;
-                break;
+                resSize = stoi(temp);
 
-            case 2:
-                resContent = temp;
+                i += resSize + 2;
+                prevIndex++;
+                resContent = stringBuffer.substr(prevIndex, i - prevIndex);
+
+                prevIndex = i;
+
                 break;
             }
 
             mode++;
-            if (mode > 2) {
+            if (mode > 1) {
                 ofstream output(resFileName.c_str(), std::ios::out | std::ios::binary);
 
                 output.write(resContent.c_str(), resContent.length());
@@ -121,9 +122,5 @@ void writeOutput(const char* fileName, unsigned size)
     while (!input.eof()) {
         input.read(&buffer, sizeof(char));
         output.write(&buffer, sizeof(char));
-    }
-
-    for (int i = 0; i < 100; ++i) {
-        output.write("X", sizeof(char));
     }
 }
